@@ -1,0 +1,80 @@
+<!-- <app-navigation></app-navigation>  -->
+<div class="content custom_cl">
+    <div class="container-fluid">
+        <div class="row">
+            
+            <div class="col-md-12">
+                    <!-- [formGroup]="campAddform" (ngSubmit)="addCampaign()" -->
+                    <div *ngIf="success_msg" class="alert alert-success" role="alert">
+                        This is a success alert—check it out!
+                    </div>
+                    <div *ngIf="error_msg" class="alert alert-danger" role="alert">
+                        This is a success alert—check it out!
+                    </div>
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">Add Text Creative</h4>
+                        <p class="card-category">Text Creative Fields</p>
+                    </div>                    
+                <div class="card-body">
+                    <form [formGroup]="addtextform" (ngSubmit)="addTextad()">
+                        <div class="card">
+                            <div class="card-header">Text Creative</div>
+                            <div class="card-body">
+                                <div class="row">
+                                    
+                                    
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                        <label class="bmd-label-floating">Creative Name</label>
+                                        <input type="text" id="creativename" name="creativename" formControlName="creativename" class="form-control"  >
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                        <label class="bmd-label-floating">Campaign Name</label>
+                                        <select  class="browser-default custom-select" name="campaignid" id="campaignid" formControlName="campaignid"   >
+                                                                        
+                                            <option *ngFor="let camps of campaignList" [ngValue]="camps.campaignid">{{camps.campaignname}}</option>
+                                        </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div  class="row">                        
+                                  
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">Text Content</label>
+                                            <textarea class="form-control" id="textcontent" name="textcontent" formControlName="textcontent" ></textarea>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div  class="row">                        
+                                  
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">Destination URL : with http(s) </label>
+                                            <input class="form-control" id="destination_url" formControlName="destination_url" value="">
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>                    
+                
+                   
+                
+                
+                
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+             
+    </div>    
+            
+    </div>
+</div>

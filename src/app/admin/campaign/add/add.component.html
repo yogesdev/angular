@@ -1,0 +1,164 @@
+<!-- <app-navigation></app-navigation>  -->
+<div class="content custom_cl">
+    <div class="container-fluid">
+        <div class="row">
+            
+            <div class="col-md-12">
+                    <!-- [formGroup]="campAddform" (ngSubmit)="addCampaign()" -->
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">Add Campaign</h4>
+                        <p class="card-category">Campaign Fields</p>
+                    </div>
+                <div class="card-body">
+                    <form [formGroup]="campAddform" (ngSubmit)="addCampaign()">
+                        <div class="card">
+                            <div class="card-header">Details</div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                        <label class="bmd-label-floating">Campaign Name</label>
+                                        <input type="text" class="form-control" id="campaignname" name="campaignname" formControlName="campaignname"   >
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                        <label class="bmd-label-floating">Budget</label>
+                                        <input type="text" id="totalbudget" name="totalbudget" formControlName="totalbudget" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating" for="revenue">Cost per delivery</label>
+                                            <input type="text" class="form-control" id="revenue" name="revenue" formControlName="revenue" >
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div  class="row">                        
+                                  
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">Campaign Type</label>
+                                            <select class=" browser-default custom-select" id="revenue_type" name="revenue_type" formControlName="revenue_type"  >
+                                                <option value="1">CPM</option>
+                                                <option value="2">CPC</option>
+                                                <option value="3">CPA</option>
+                                                <option value="4">Tenancy</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating" for="revenue">Category</label>
+                                            <!-- <input type="text" class="form-control" id="revenue" name="revenue" formControlName="revenue" > -->
+                                            <select class="browser-default custom-select" [(ngModel)]="selected" name="category" id="category" formControlName="category" placeholder="select" (ngModelChange)="getSubCategory()" >
+                                                
+                                                <option *ngFor="let cats of iab_categories" [ngValue]="cats.category">{{cats.name}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating" for="revenue">Sub-Category</label>
+                                            <select  class="browser-default custom-select" name="subcategory" id="subcategory" formControlName="subcategory" placeholder="select" >                                                           
+                                                <option *ngFor="let scats of iab_subcategories" [ngValue]="scats.sub_category">{{scats.sub_name}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                    
+                
+                    <div class="card">
+                        <div class="card-header">Targeting</div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                    <label class="bmd-label-floating">Country :Dropdown</label>
+                                    <select  class="browser-default custom-select" name="country" id="country" formControlName="country" placeholder="select" >    
+                                                           
+                                            <option value="91" >India</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                    <label class="bmd-label-floating">Province/State :Dropdown</label>
+                                    <select  class="browser-default custom-select" name="state" id="state"  placeholder="select" >    
+                                                           
+                                        <option value="91" >India</option>
+                                    </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                    <label class="bmd-label-floating">City :Dropdown</label>
+                                    <input type="email" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                    <label class="bmd-label-floating">WebSite/Application :Dropdown</label>
+                                    <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                    <label class="bmd-label-floating">IP Address Range :Dropdown</label>
+                                    <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                    <label class="bmd-label-floating">Device Type :Dropdown</label>
+                                    <input type="email" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                    <label class="bmd-label-floating">Start Date :Datepicker</label>
+                                    <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                    <label class="bmd-label-floating">Start Time :Time</label>
+                                    <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                    <label class="bmd-label-floating">End Date :Datepicker</label>
+                                    <input type="email" class="form-control">
+                                    </div>
+                                </div><div class="col-md-2">
+                                        <div class="form-group">
+                                        <label class="bmd-label-floating">End Time :Time</label>
+                                        <input type="email" class="form-control">
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                
+                
+                
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+             
+    </div>    
+            
+    </div>
+</div>

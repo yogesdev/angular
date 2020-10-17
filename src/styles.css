@@ -1,0 +1,6 @@
+/* You can add global styles to this file, and also import other style files */
+.custom_cl{
+ margin-top: 70px;
+ padding: 30px 15px;
+ min-height: calc(100vh - 123px);
+}
